@@ -121,6 +121,6 @@ tests/test_monitor.py::test_health_check_critical_overrides_warning PASSED
 
 ## Author
 
-**José Ángel Ceballos Rodríguez**
+**Euchelu**
 - GitHub: [@Euchelu](https://github.com/Euchelu)
 - LinkedIn: [José Ángel Ceballos](https://www.linkedin.com/in/josé-ángel-ceballos-rodríguez-a44996346/)
