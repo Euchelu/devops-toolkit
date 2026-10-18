@@ -3,9 +3,10 @@ System health monitor — reports CPU, memory, disk and network stats.
 Designed to be lightweight, testable and CI/CD friendly.
 """
 import platform
-import psutil
 from dataclasses import dataclass
 from enum import Enum
+
+import psutil
 
 
 class HealthStatus(str, Enum):

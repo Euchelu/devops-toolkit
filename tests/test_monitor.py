@@ -1,11 +1,17 @@
-import pytest
-from unittest.mock import patch, MagicMock
-from app.monitor import (
-    _classify, get_cpu, get_memory, get_disk,
-    get_system_info, run_health_check,
-    HealthStatus, Metric,
-)
+from unittest.mock import MagicMock, patch
 
+import pytest
+
+from app.monitor import (
+    HealthStatus,
+    Metric,
+    _classify,
+    get_cpu,
+    get_disk,
+    get_memory,
+    get_system_info,
+    run_health_check,
+)
 
 # ── _classify ─────────────────────────────────────────────────────────────────
 

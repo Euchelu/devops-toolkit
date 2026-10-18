@@ -7,6 +7,7 @@ import time
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
 from .monitor import run_health_check
 
 app = FastAPI(title="DevOps Toolkit API", version="1.0.0")
