@@ -2,7 +2,8 @@
 
 [![CI/CD Pipeline](https://github.com/Euchelu/devops-toolkit/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Euchelu/devops-toolkit/actions/workflows/ci-cd.yml)
 ![Python](https://img.shields.io/badge/python-3.13-blue)
-![Tests](https://img.shields.io/badge/tests-18%20passed-brightgreen)
+![Tests](https://img.shields.io/badge/tests-22%20passed-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![Docker](https://img.shields.io/badge/docker-ready-blue)
 
 System health monitor with a full **4-stage CI/CD pipeline** using GitHub Actions.
@@ -94,6 +95,22 @@ pip install -r requirements-dev.txt
 python -c "from app.monitor import run_health_check; import json; print(json.dumps(run_health_check(), indent=2))"
 ```
 
+### Run the REST API
+
+The monitor is also exposed as a FastAPI service, consumed by the [System Health Monitor](https://github.com/Euchelu/system-health-monitor) dashboard.
+
+```bash
+pip install -r requirements.txt
+uvicorn app.api:app --reload --port 8001
+```
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /health` | Full health check with system info and timestamp |
+| `GET /metrics` | Overall status and metrics only |
+
+Browser access is restricted with CORS. Allowed origins are set with the `ALLOWED_ORIGINS` environment variable (comma-separated); by default `https://euchelu.github.io` and `http://localhost:5173`.
+
 ## Running Tests
 
 ```bash
@@ -115,8 +132,9 @@ tests/test_monitor.py::test_health_check_overall_ok                PASSED
 tests/test_monitor.py::test_health_check_overall_warning           PASSED
 tests/test_monitor.py::test_health_check_overall_critical          PASSED
 tests/test_monitor.py::test_health_check_critical_overrides_warning PASSED
+tests/test_api.py::...                                             PASSED (x4)
 
-18 passed in 0.27s
+22 passed, 100% coverage
 ```
 
 ## Author

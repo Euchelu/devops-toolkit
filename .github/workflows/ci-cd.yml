@@ -20,7 +20,7 @@ jobs:
           cache: "pip"
 
       - name: Install ruff
-        run: pip install ruff
+        run: pip install "ruff==0.8.4"  # misma versión que requirements-dev.txt
 
       - name: Run linter
         run: ruff check app/ tests/
