@@ -20,8 +20,8 @@ def test_metrics_returns_metrics_list():
 
 
 def test_cors_allows_configured_origin():
-    r = client.get("/health", headers={"Origin": "https://euchelu052.github.io"})
-    assert r.headers["access-control-allow-origin"] == "https://euchelu052.github.io"
+    r = client.get("/health", headers={"Origin": "https://euchelu.github.io"})
+    assert r.headers["access-control-allow-origin"] == "https://euchelu.github.io"
 
 
 def test_cors_rejects_unknown_origin():
