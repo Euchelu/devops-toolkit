@@ -100,8 +100,10 @@ def test_get_system_info_keys():
 # ── run_health_check ──────────────────────────────────────────────────────────
 
 def _mock_metrics(cpu=40.0, mem=50.0, disk=60.0):
-    mock_mem = MagicMock(); mock_mem.percent = mem
-    mock_disk = MagicMock(); mock_disk.percent = disk
+    mock_mem = MagicMock()
+    mock_mem.percent = mem
+    mock_disk = MagicMock()
+    mock_disk.percent = disk
     return (
         patch("app.monitor.psutil.cpu_percent", return_value=cpu),
         patch("app.monitor.psutil.virtual_memory", return_value=mock_mem),
